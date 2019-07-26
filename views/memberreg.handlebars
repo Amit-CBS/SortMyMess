@@ -1,6 +1,6 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
-<nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
+<nav class="navbar sticky-top navbar-expand-sm navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="#"> About <i class="fab fa-connectdevelop"></i></a>
         <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
@@ -21,28 +21,29 @@
         </div>
     </div>
 </nav>
+
 <div class="container" style="padding-top: 70px;">
     <center>
-        {{#if error_msg}}
-        <div class="alert alert-danger alert-dismissible fade show myalert" role="alert">
-            {{error_msg}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {{/if}}
+    {{#if error_msg}}
+    <div class="alert alert-danger alert-dismissible fade show myalert" role="alert">
+        {{error_msg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {{/if}}
     </center>
     <center>
-        {{#if success_msg}}
-        <div class="alert alert-success alert-dismissible fade show myalert" role="alert">
-            {{success_msg}}
-            <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-                <span aria-hidden="true">&times;</span>
-            </button>
-        </div>
-        {{/if}}
+    {{#if success_msg}}
+    <div class="alert alert-success alert-dismissible fade show myalert" role="alert">
+        {{success_msg}}
+        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    {{/if}}
     </center>
-    <form class="box BlurBox" action="/member_reg" method="POST" onsubmit="Mmessage()">
+    <form class="box" action="/member_reg" method="POST" onsubmit="Mmessage()">
         <center>
             <div class="row justify-content-sm-center">
                 <div class="col-sm-8 thumbnail">

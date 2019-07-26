@@ -81,12 +81,19 @@ function showmodal() {
   for (var i = 0; i < item_length; i++) {
     var table_name = document.createElement("table");
     table_name.style.border = "2px solid red"
+    var user_name=document.getElementsByClassName("nameId")[i];
     var item_name = document.getElementsByClassName("item")[i];
     var item_price = document.getElementsByClassName("price")[i];
+    var z=user_name.childNodes[0].nodeValue;
     var x = item_name.childNodes[0].nodeValue;
     var y = item_price.childNodes[0].nodeValue;
     var temp_array1 = x.split(",");
     var temp_array2 = y.split(",");
+    var table_row = document.createElement("tr");
+    var table_data = document.createElement("td");
+    table_data.textContent=z;
+    table_row.appendChild(table_data);
+    table_name.appendChild(table_row);
     for (var j = 0; j < temp_array1.length; j++) {
       var table_row = document.createElement("tr");
       var table_data1 = document.createElement("td");
@@ -98,6 +105,7 @@ function showmodal() {
       table_name.appendChild(table_row)
     }
     divison.appendChild(table_name)
+    divison.appendChild(document.createElement("br"))
     console.log(temp_array1)
     console.log(temp_array2)
   }

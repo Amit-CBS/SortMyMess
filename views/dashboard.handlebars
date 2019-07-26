@@ -1,9 +1,9 @@
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.6.3/css/all.css" integrity="sha384-UHRtZLI+pbxtHCWp1t77Bi1L4ZtiqrqD80Kn4Z8NTSRyMA2Fd33n5dQ8lWUE00s/" crossorigin="anonymous">
     <link rel="stylesheet" href="/css/style.css">
-<nav class="navbar fixed-top navbar-expand-sm navbar-light bg-light">
+<nav class="navbar sticky-top navbar-expand-sm navbar-light bg-light">
     <div class="container">
         <a class="navbar-brand" href="#">About <i class="fab fa-connectdevelop"></i></a>
-        <a class="navbar-brand" href="#" style="color:rgba(88, 16, 255, 0.774); font-weight:bold">WELC<i class="far fa-smile"></i>ME {{name}}</a>
+        <a class="navbar-brand" href="#" style="color:rgba(199, 16, 255, 0.884); font-weight:bold">WELC<i class="far fa-smile"></i>ME {{name}}</a>
 
         <div class="justify-content-end" id="navbarColor03">
             <ul class="nav navbar-nav navStyle">
@@ -31,7 +31,7 @@
         <button id="myBtn2" onclick="calculatemodal()" class="btn btn3">Calculte</button>
     </center>
     <div class="row justify-content-sm-center">
-        <div class="col-sm-9 thumbnail">
+        <div class="col-sm-8 thumbnail">
             <table class="table">
                 <thead>
                     <tr>
@@ -56,63 +56,17 @@
         </div>
     </div>
 
-    {{!-- <div class="container thumbnail table-responsive-md" style="overflow-x: visible;">
-        <table class="table table-bordered table-dark">
-            <thead>
-                <tr>
-                    {{#each dataUser}}
-                    <th colspan="2">{{nameId}}</th>
-                    {{/each}}
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    {{#each dataUser}}
-                    <td>Item</td>
-                    <td>Price</td>
-                    {{/each}}
-                </tr>
-                <tr>
-                    {{#each dataUser}}
-                    <td><div class="item">{{item}}</div></td>
-                    <td><div class="price">{{price}}</div></td>
-                    {{/each}}
-                    <div id="data"></div> 
-                </tr>
-            </tbody>
-        </table>
-    </div> --}}
-    {{#each dataUser}}
+    
+                        {{#each dataUser}}
+                        
+                            <div class="nameId" style="display:none">{{nameId}}</div>
+                            <div class="item" style="display:none">{{item}}</div>
+                            <div class="price" style="display:none">{{price}}</div>
+                        
+                        {{/each}}
+                        <div id="data"></div>
+                        
                    
-        {{!-- <td class="nameId">{{nameId}}</td> --}}
-        <div class="row thumbnail">
-            <div class="col-sm-8">
-                <div class="item" style="display:none; border-color: coral;">{{item}}</div>
-                <div class="price" style="display:none">{{price}}</div>
-            </div>
-        </div>
-    {{/each}}
-    <div id="data"></div>
-    {{!-- <div class="container thumbnail">
-        <div class="row">
-        {{#each dataUser}}
-            <div style="background-color:blue" class="col-sm-6">{{nameId}}</div>
-        {{/each}}
-        </div>
-        <div class="row">
-            <div style="background-color:blue" class="col-sm-3">Item</div>
-            <div style="background-color:blue" class="col-sm-3">Price</div>
-            <div style="background-color:blue" class="col-sm-3">Item</div>
-            <div style="background-color:blue" class="col-sm-3">Price</div>
-        </div>
-        <div class="row">
-        {{#each dataUser}}
-            <div class="item" style="background-color:blue" class="col-sm-3">{{item}}</div>
-            <div class="price" style="background-color:blue" class="col-sm-3">{{price}}</div>
-        {{/each}}
-        </div>
-        <div id="data"></div>
-    </div> --}}
     <div id="calculate" class="modal thumbnail">
         <div class="modal-content2">
             <span class="close3">&times;</span>
