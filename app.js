@@ -9,7 +9,6 @@ const flash = require('connect-flash');
 const session = require('express-session');
 const passport=require('passport');
 
-
 mongoose.connect("mongodb+srv://aniket1729:aniketjha@cluster0-ok85m.mongodb.net/test?retryWrites=true&w=majority", { useNewUrlParser: true }, () => {
   console.log("Database Connected");
 });
