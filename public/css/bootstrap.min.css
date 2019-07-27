@@ -1595,7 +1595,7 @@ pre code {
 
 .table-bordered th,
 .table-bordered td {
-  border: 1px solid #e9ecef;
+  /* border: 1px solid #e9ecef; */
 }
 
 .table-bordered thead th,
@@ -1747,9 +1747,9 @@ pre code {
 }
 
 .table .thead-dark th {
-  color: #fff;
+  /* color: #fff; */
   background-color: #212529;
-  border-color: #32383e;
+  /* border-color: #32383e; */
 }
 
 .table .thead-light th {

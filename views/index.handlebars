@@ -9,11 +9,11 @@
         </button>
         <div class="collapse navbar-collapse justify-content-end" id="navbarColor03">
             <ul class="nav navbar-nav navStyle nav-tabs">
-                <li class="nav-item">
+                {{!-- <li class="nav-item">
                     <a class="nav-link active" href="/">Registration <i class="fas fa-users"></i> <span class="sr-only">(current)</span></a>
-                </li>
+                </li> --}}
                 <li class="nav-item">
-                    <a class="nav-link" href="/member_reg">Add <i class="fas fa-user-plus"></i></a>
+                    <a class="nav-link" href="/">Add <i class="fas fa-user-plus"></i></a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="/member_signin">L<i class="far fa-smile"></i>GIN <i class="fas fa-sign-in-alt"></i></a>
@@ -25,17 +25,17 @@
 
 <div class="container" style="padding-top: 70px;">
     
-    <form class="box" action="/registermess" method="POST" onsubmit="Mmessage()">
-    <center>
-    {{#if error_msg}}
-    <div class="alert alert-danger alert-dismissible fade show myalert" role="alert">
-        {{error_msg}}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
-    </div>
-    {{/if}}
-    </center>
+    <form class="box BlurBox" action="/registermess" method="POST" onsubmit="Mmessage()">
+        <center>
+            {{#if error_msg}}
+                <div class="alert alert-danger alert-dismissible fade show myalert" role="alert">
+                    {{error_msg}}
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            {{/if}}
+        </center>
         <center>
             <div class="row justify-content-sm-center">
                 <div class="col-sm-8 thumbnail">
@@ -47,7 +47,7 @@
                 <div class="col-sm-8 thumbnail">
                     <label class="label" for="exampleInputEmail2">Mess Name</label>
                     <input required onkeypress="return names(event,this);" type="text" onkeypress="return NAME(event,this);" class="form-control input" id="exampleInputEmail2" aria-describedby="emailHelp" placeholder="Enter name of the mess..." name="messname">
-                   
+                    
                 </div>
             </div><br>
             <div class="row justify-content-sm-center">
@@ -56,7 +56,7 @@
                     <input required type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter a common password for all mess members..." name="password">
                 </div>
             </div><br>
-           
+            
             <div class="row justify-content-sm-center">
                 <div class="col-sm-8">
                     <button type="submit" class="btn btn3">Register <i class="fas fa-users-cog"></i></button>
@@ -65,4 +65,3 @@
         </center>
     </form>
 </div>
-

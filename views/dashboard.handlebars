@@ -4,7 +4,6 @@
     <div class="container">
         <a class="navbar-brand" href="#">About <i class="fab fa-connectdevelop"></i></a>
         <a class="navbar-brand" href="#" style="color:rgba(199, 16, 255, 0.884); font-weight:bold">WELC<i class="far fa-smile"></i>ME {{name}}</a>
-
         <div class="justify-content-end" id="navbarColor03">
             <ul class="nav navbar-nav navStyle">
                 <li class="nav-item">
@@ -15,98 +14,84 @@
         </div>
     </div>
 </nav>
-<div class="container" style="padding-top: 70px;">
-    {{#if success_msg}}
-    <div class="alert alert-success alert-dismissible fade show myalert" role="alert">
-        {{success_msg}}
-        <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-            <span aria-hidden="true">&times;</span>
-        </button>
+<hr>
+<div class="container">
+    <br><br>
+    <div class="row">
+        <div class="col-sm-4"><button id="myBtn" onclick="editmodal()" class="btn btn3">Add</button></div>
+        <div class="col-sm-4"><button id="myBtn1" onclick="showmodal()" class="btn btn3">Show</button></div>
+        <div class="col-sm-4"><button id="myBtn2" onclick="calculatemodal()" class="btn btn3">Calculte</button></div>
     </div>
-    {{/if}}
+    <br><br>
+    <div class="container thumbnail table-responsive-md" style="overflow-x:auto;">
+        <table class="table table-bordered">
+            <thead class="thead-dark">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th> 
+                </tr>
+            </thead>
+            <tbody>
+                {{#each memberUser}}
+                <tr>
+                    <td>{{name}}</td>
+                    <td>{{email}}</td>
+                </tr>
+                {{/each}}
+            </tbody>
+        </table> 
+    </div>
+</div>
 
-    <center>
-        <button id="myBtn" onclick="editmodal()" class="btn btn3">Add</button>
-        <button id="myBtn1" onclick="showmodal()" class="btn btn3">Show</button>
-        <button id="myBtn2" onclick="calculatemodal()" class="btn btn3">Calculte</button>
-    </center>
-    <div class="row justify-content-sm-center">
-        <div class="col-sm-8 thumbnail">
+{{#each dataUser}}
+    <div class="nameId" style="display:none">{{nameId}}</div>
+    <div class="item" style="display:none">{{item}}</div>
+    <div class="price" style="display:none">{{price}}</div>
+{{/each}}
+<br><br>
+<div class="container">
+    <div style="overflow-x:auto;" id="data">
+    </div>
+</div>
+<div id="calculate" class="modal thumbnail">
+    <div class="modal-content2">
+        <span class="close3">&times;</span>
+        <div class="col-sm-8">
             <table class="table">
                 <thead>
                     <tr>
-                        <th>MessId</th>
                         <th>Name</th>
-                        <th>Email</th>
-                        <th>Phone</th> 
+                        <th>Total Expense</th>
                     </tr>
                 </thead>
                 <tbody>
-                    {{#each memberUser}}
-                        <tr>
-                            <td>{{messid1}}</td>
-                            <td>{{name}}</td>
-                            <td>{{email}}</td>
-                            <td>{{phone}}</td>
-                            <td>{{member}}</td>
-                        </tr>
+                    {{#each memberTotal}}
+                    <tr>
+                        <td>{{name}}</td>
+                        <td>{{values}}</td>
+                    </tr>
                     {{/each}}
                 </tbody>
             </table>
         </div>
     </div>
-
-    
-                        {{#each dataUser}}
-                        
-                            <div class="nameId" style="display:none">{{nameId}}</div>
-                            <div class="item" style="display:none">{{item}}</div>
-                            <div class="price" style="display:none">{{price}}</div>
-                        
-                        {{/each}}
-                        <div id="data"></div>
-                        
-                   
-    <div id="calculate" class="modal thumbnail">
-        <div class="modal-content2">
-            <span class="close3">&times;</span>
-            <div class="col-sm-8">
-                <table class="table">
-                    <thead>
-                        <tr>
-                            <th>Name</th>
-                            <th>Total Expense</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        {{#each memberTotal}}
-                        <tr>
-                            <td>{{name}}</td>
-                            <td>{{values}}</td>
-                        </tr>
-                        {{/each}}
-                    </tbody>
-                </table>
-            </div>
-        </div>
-    </div>
-    <div id="edit" class="modal">
-        <div class="modal-content">
-            <span class="close2">&times;</span>
-            <form action="/edit" method="POST" class="box">
-                <center>
-                    <div class="form-group thumbnail">
-                        <label for="Item Name">Item Name</label>
-                        <input type="text" class="form-control" placeholder="Item Name" name="itemName">
-                        <input type="hidden" name="idUser" value="{{email}}">
-                    </div>
-                    <div class="form-group thumbnail">
-                        <label for="Price">Price</label>
-                        <input type="number" class="form-control"  placeholder="Price" name="itemPrice">
-                    </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-                </center>
-            </form>
-        </div>
+</div>
+<div id="edit" class="modal">
+    <div class="modal-content">
+        <span class="close2">&times;</span>
+        <form action="/edit" method="POST" class="box">
+            <center>
+                <div class="form-group thumbnail">
+                    <label for="Item Name">Item Name</label>
+                    <input type="text" class="form-control" placeholder="Item Name" name="itemName">
+                    <input type="hidden" name="idUser" value="{{email}}">
+                </div>
+                <div class="form-group thumbnail">
+                    <label for="Price">Price</label>
+                    <input type="number" class="form-control"  placeholder="Price" name="itemPrice">
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </center>
+        </form>
     </div>
 </div>

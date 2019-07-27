@@ -8,6 +8,10 @@ const passport=require('passport');
 const LocalStrategy=require('passport-local').Strategy;
 const { ensureAuthenticated } = require('../config/auth');
 
+router.get('/', (req, res) => {
+    res.render("memberreg");
+});
+
 router.get("/member_reg", (req, res) => {
     res.render("memberreg");
 });
@@ -19,9 +23,8 @@ router.post("/member_reg", (req, res) => {
     const userId=req.body.messid1;
     const nameId=req.body.name;
     const emailId=req.body.email;
-    User.findOne({messid:messid1}).then(user=>{
         Data.findOne({user:email}).then(data=>{
-            if(user && !data){
+            if(!data){
                 Member.findOne({email:email}).then(user1=>{
                     if(user1){
                         req.flash("error_msg",'Member alredy exists');
@@ -46,11 +49,9 @@ router.post("/member_reg", (req, res) => {
                         });
                     }
                 })
-            }else{
-                res.send("No messid found");
             }
+           
         })
-    })
 });
 router.get('/dashboard', ensureAuthenticated, (req, res) =>{
     const memberUser=req.user.messid1;
@@ -76,16 +77,6 @@ router.get('/dashboard', ensureAuthenticated, (req, res) =>{
                 dataUser:dataUser,
                 memberTotal:memberTotal
             });
-            // console.log((memberUser[0].email));
-            // console.log(dataUser[0].item[0]);
-            
-            //console.log(dataUser.length);
-            //console.log(dataUser[0].item.length);
-            //console.log(dataUser[1].item.length);
-            
-            // console.log(memberUser);
-            // console.log(dataUser);
-            //res.send("Working");
         });
     })
 });   
@@ -112,17 +103,23 @@ passport.deserializeUser(function (id, done) {
 });
 router.post("/member_signin", (req, res,next) => {
     messid2=req.body.messid2;
-    User.findOne({messid:messid2}).then(pass=>{
+    email1=req.body.email;
+    Member.findOne({email:email1}).then(pass=>{
         if(pass){
-            passport.authenticate("local", {
-                successRedirect: "/dashboard",
-                failureRedirect: "/member_signin",
-                failureFlash: "true"
-            })(req, res, next);  
+            if (pass.messid1==messid2) {
+                passport.authenticate("local", {
+                    successRedirect: "/dashboard",
+                    failureRedirect: "/member_signin",
+                    failureFlash: "true"
+                })(req, res, next);
+            } else {
+                req.flash('error_msg', "Please enter correct MessId");
+                res.redirect('member_signin');
+            }
         }else{
-            req.flash('error_msg',"MessId does not exits");
+            req.flash('error_msg', "User does not exits");
             res.redirect('member_signin');
-        }   
+        }  
     })      
 });
 module.exports = router;

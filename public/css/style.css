@@ -89,20 +89,17 @@ cursor: pointer;
 }
 
 body{
-/* padding-top: 70px; */
-background: black;
-/* background: url(https://images.unsplash.com/photo-1516571748831-5d81767b788d?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1534&q=80); */
-/* background-size: auto; */
-/* background-size: inherit; */
-/* background-size: initial; */
-/* background-size: unset; */
+background: url(/css/82df9c950d65b07334be00ea9a47731f.jpg);
+/* background-attachment: fixed; */
+background-size: auto;
 background-position: center;
 background-size: cover;
-/* width: 100%;
-height: 100%;*/
-/* background-size: 100% 100%; */
 font-family: Arial, Helvetica, sans-serif;
 margin-bottom: 1%;
+position: relative;
+justify-content: center;
+align-items: center;
+/* display: flex; */
 }
 *{box-sizing: border-box;}
 .jumbotron{
@@ -110,15 +107,6 @@ color: #2c3e50;
 background: #ecf0f1;
 padding: 0%;
 }
-/* .navbar-inverse{
-background: #8664ffea;
-}
-.navbar-inverse .navbar-brand{
-color: white;
-}
-.navbar-inverse .navbar-nav>li>a{
-color: white;
-} */
 .form-control1{
 width: 50%;
 }
@@ -296,4 +284,57 @@ font-size: 20px;
 }
 .nameId{
   display:none;
+}
+body .BlurBox
+{
+    margin-top: 2%;
+    position: relative;
+    max-width: 100%;
+    box-shadow: 0 5px 15px rgba(0, 0, 0,.5);
+    overflow: hidden;
+    columns: #000;
+}
+body .BlurBox:before
+{
+    position: absolute;
+    top: -20px;
+    left: -20px;
+    right: -20px;
+    bottom: -20px;
+    background: url(/css/82df9c950d65b07334be00ea9a47731f.jpg);
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    filter: blur(2px);
+    margin-bottom: 1%;
+    content: "";
+}
+
+#myBtn{
+  width: 100%;
+}
+#myBtn1{
+  width: 100%;
+}
+#myBtn2{
+  width: 100%;
+}
+.datatable {
+  width: 100%;
+  border: 1px solid #ddd;
+}
+.datatable1 {
+  width: 100%;
+  /* border: 1px solid #ddd; */
+}
+th {
+  text-align: center;
+  padding: 10px;
+  color: lightgreen;
+  border: 1px solid black;
+}
+td {
+  text-align: center;
+  padding: 10px;
+  border: 1px solid black;
 }

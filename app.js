@@ -43,12 +43,12 @@ app.use((req, res, next) => {
 app.engine('handlebars', exphbs({ defaultLayout: 'layout' }));
 app.set('view engine', 'handlebars');
 
-const home=require("./routes/index");
+//const home=require("./routes/index");
 const member=require("./routes/member");
 const dashboard = require("./routes/dashboard");
 
 
-app.use("/", home);
+//app.use("/", home);
 app.use("/", member);
 app.use("/", dashboard);
 
